@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalogue — The Culinary Archive</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts de la page précédente -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Noto Serif', 'serif'],
+            sans: ['Manrope', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Manrope', sans-serif; }
+    .serif { font-family: 'Noto Serif', serif; }
+
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 24;
+    }
+
+    .brand {
+      font-family: 'Noto Serif', serif;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem;
+      border-radius: 999px;
+      color: #57534e;
+      transition: 0.25s ease;
+    }
+
+    .icon-btn:hover {
+      background: rgba(214, 211, 209, 0.45);
+      color: #3f3f46;
+    }
+
+    .mobile-pill {
+      white-space: nowrap;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      border: 1px solid #e7e5e4;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      color: #57534e;
+      background: #ffffff;
+      transition: 0.25s ease;
+    }
+
+    .mobile-pill:hover,
+    .mobile-pill.active {
+      background: #450a0a;
+      color: white;
+      border-color: #450a0a;
+    }
+
+    .carte-img { transition: transform 0.5s ease; }
+    .carte:hover .carte-img { transform: scale(1.05); }
+  </style>
+</head>
+<body class="bg-[#f9f7f4] text-gray-800 min-h-screen">
+
+  <!-- NAVBAR de la page précédente -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-stone-50/90 backdrop-blur border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-4">
+        <a href="#" class="brand text-2xl text-red-950">The Culinary Archive</a>
+
+        <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.2em]">
+          <a href="index.html" class="text-stone-600 hover:text-red-900 transition">Accueil</a>
+          <a href="catalogue.html" class="text-red-900 border-b border-red-900 pb-1">Catalogues</a>
+          <a href="article.html" class="text-stone-600 hover:text-red-900 transition">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button class="icon-btn hidden md:inline-flex" aria-label="Rechercher">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+          <button class="icon-btn md:hidden" aria-label="Menu">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="md:hidden pb-4 flex gap-2 overflow-x-auto">
+        <a href="index.html" class="mobile-pill">Archive</a>
+        <a href="catalogue.html" class="mobile-pill active">Catalogues</a>
+        <a href="article.html" class="mobile-pill">Contact</a>
+        <a href="#" class="mobile-pill">Scholars</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- EN-TÊTE -->
+  <section class="px-6 md:px-8 pt-32 pb-6 max-w-5xl mx-auto">
+    <span class="text-xs font-medium tracking-widest text-[#8B5E3C] uppercase border border-[#d4a77a] inline-block px-3 py-1 mb-4">
+      Bibliographie Culinaire
+    </span>
+    <h1 class="serif text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4 max-w-xl">
+      Livres de Cuisine<br />& Manuscrits Culinaires
+    </h1>
+    <p class="text-gray-500 text-sm max-w-md">
+      Une archive numérique dédiée à la préservation et à l'étude du patrimoine gastronomique mondial.
+    </p>
+  </section>
+
+  <!-- FILTRES (décoratifs) -->
+  <section class="px-6 md:px-8 max-w-5xl mx-auto mb-8">
+    <div class="flex flex-wrap gap-1 border-b border-gray-200">
+      <span class="text-xs font-semibold tracking-widest uppercase text-gray-900 border-b-2 border-gray-900 pb-3 px-2 mr-3">
+        TOUS
+      </span>
+      <span class="text-xs font-medium tracking-widest uppercase text-gray-400 pb-3 px-2 mr-3 border-b-2 border-transparent">
+        RECETTES
+      </span>
+      <span class="text-xs font-medium tracking-widest uppercase text-gray-400 pb-3 px-2 mr-3 border-b-2 border-transparent">
+        HISTOIRE
+      </span>
+      <span class="text-xs font-medium tracking-widest uppercase text-gray-400 pb-3 px-2 mr-3 border-b-2 border-transparent">
+        BIOGRAPHIES
+      </span>
+      <span class="text-xs font-medium tracking-widest uppercase text-gray-400 pb-3 px-2 mr-3 border-b-2 border-transparent">
+        TECHNIQUES
+      </span>
+    </div>
+  </section>
+
+  <!-- GRILLE DES ARTICLES -->
+  <main class="px-6 md:px-8 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Article 1 -->
+      <article class="carte bg-white">
+        <div class="overflow-hidden mb-4 h-52">
+          <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=300&fit=crop"
+            alt="Ancien livre de cuisine" class="carte-img w-full h-full object-cover" />
+        </div>
+        <p class="text-[10px] tracking-widest text-gray-400 uppercase mb-2">Histoire · XVIIIe siècle</p>
+        <h2 class="serif text-lg font-bold text-gray-900 mb-2 leading-snug">La Physiologie du Goût</h2>
+        <p class="text-sm text-gray-500 leading-relaxed mb-3">
+          Le texte fondateur de Brillat-Savarin sur la philosophie du repas et l'expérience physiologique de la gastronomie.
+        </p>
+        <a href="article.html" class="text-xs font-medium text-gray-700 hover:text-gray-900 tracking-wide">LIRE LA SUITE &rarr;</a>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="carte bg-white">
+        <div class="overflow-hidden mb-4 h-52">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop"
+            alt="Chefs en cuisine" class="carte-img w-full h-full object-cover" />
+        </div>
+        <p class="text-[10px] tracking-widest text-gray-400 uppercase mb-2">Biographies · Mémoires</p>
+        <h2 class="serif text-lg font-bold text-gray-900 mb-2 leading-snug">Les Confessions d'un Chef</h2>
+        <p class="text-sm text-gray-500 leading-relaxed mb-3">
+          Un voyage sans filtre dans les coulisses de la restauration qui a changé notre regard sur les cuisines professionnelles.
+        </p>
+        <a href="article.html" class="text-xs font-medium text-gray-700 hover:text-gray-900 tracking-wide">LIRE LA SUITE &rarr;</a>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="carte bg-white">
+        <div class="overflow-hidden mb-4 h-52">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop"
+            alt="Cuisine moderne" class="carte-img w-full h-full object-cover" />
+        </div>
+        <p class="text-[10px] tracking-widest text-gray-400 uppercase mb-2">Techniques · Science</p>
+        <h2 class="serif text-lg font-bold text-gray-900 mb-2 leading-snug">La Cuisine Moderniste</h2>
+        <p class="text-sm text-gray-500 leading-relaxed mb-3">
+          Explorer la rencontre entre science, technologie et techniques qui ont transformé l'art culinaire au XXIe siècle.
+        </p>
+        <a href="article.html" class="text-xs font-medium text-gray-700 hover:text-gray-900 tracking-wide">LIRE LA SUITE &rarr;</a>
+      </article>
+
+      <!-- Article 4 -->
+      <article class="carte bg-white">
+        <div class="overflow-hidden mb-4 h-52">
+          <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=400&h=300&fit=crop"
+            alt="Cuisine italienne" class="carte-img w-full h-full object-cover" />
+        </div>
+        <p class="text-[10px] tracking-widest text-gray-400 uppercase mb-2">Recettes · Régional</p>
+        <h2 class="serif text-lg font-bold text-gray-900 mb-2 leading-snug">La Cuillère d'Argent</h2>
+        <p class="text-sm text-gray-500 leading-relaxed mb-3">
+          Le livre de cuisine italien par excellence, documentant des siècles de traditions régionales et de recettes familiales.
+        </p>
+        <a href="article.html" class="text-xs font-medium text-gray-700 hover:text-gray-900 tracking-wide">LIRE LA SUITE &rarr;</a>
+      </article>
+
+      <!-- Article 5 -->
+      <article class="carte bg-white">
+        <div class="overflow-hidden mb-4 h-52">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop"
+            alt="Guide culinaire" class="carte-img w-full h-full object-cover" />
+        </div>
+        <p class="text-[10px] tracking-widest text-gray-400 uppercase mb-2">Techniques · Référence</p>
+        <h2 class="serif text-lg font-bold text-gray-900 mb-2 leading-snug">Le Guide Culinaire</h2>
+        <p class="text-sm text-gray-500 leading-relaxed mb-3">
+          Le chef-d'œuvre d'Escoffier qui a codifié la haute cuisine française, référence absolue pour les chefs professionnels.
+        </p>
+        <a href="article.html" class="text-xs font-medium text-gray-700 hover:text-gray-900 tracking-wide">LIRE LA SUITE &rarr;</a>
+      </article>
+
+      <!-- Article 6 -->
+      <article class="carte bg-white">
+        <div class="overflow-hidden mb-4 h-52">
+          <img src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?w=400&h=300&fit=crop"
+            alt="Manuscrit médiéval" class="carte-img w-full h-full object-cover" />
+        </div>
+        <p class="text-[10px] tracking-widest text-gray-400 uppercase mb-2">Histoire · Médiéval</p>
+        <h2 class="serif text-lg font-bold text-gray-900 mb-2 leading-snug">Le Viandier de Taillevent</h2>
+        <p class="text-sm text-gray-500 leading-relaxed mb-3">
+          L'une des plus anciennes collections de recettes du Moyen Âge, offrant un aperçu des banquets royaux de l'époque.
+        </p>
+        <a href="article.html" class="text-xs font-medium text-gray-700 hover:text-gray-900 tracking-wide">LIRE LA SUITE &rarr;</a>
+      </article>
+
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="flex items-center justify-center gap-6 py-14 text-sm text-gray-400">
+      <a href="#" class="hover:text-gray-700 transition">&laquo; Précédent</a>
+      <span class="border-b-2 border-gray-900 text-gray-900 font-semibold px-1 pb-0.5">01</span>
+      <a href="#" class="hover:text-gray-700 transition">02</a>
+      <a href="#" class="hover:text-gray-700 transition">03</a>
+      <a href="#" class="hover:text-gray-700 transition">Suivant &raquo;</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-200 bg-white mt-4 px-6 md:px-8 py-10">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+      <div>
+        <p class="serif font-bold text-gray-900 mb-2">The Culinary Archive</p>
+        <p class="text-gray-400 text-xs leading-relaxed">
+          Un dépôt numérique dédié à la préservation du patrimoine gastronomique mondial.
+        </p>
+      </div>
+      <div>
+        <p class="font-medium text-gray-700 mb-3 uppercase text-xs tracking-widest">Archives</p>
+        <ul class="text-gray-400 space-y-1 text-xs">
+          <li>Textes Anciens</li>
+          <li>Études Régionales</li>
+          <li>Documents Modernes</li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-medium text-gray-700 mb-3 uppercase text-xs tracking-widest">Informations</p>
+        <ul class="text-gray-400 space-y-1 text-xs">
+          <li>À propos</li>
+          <li>Politique de curation</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-medium text-gray-700 mb-3 uppercase text-xs tracking-widest">Newsletter</p>
+        <p class="text-gray-400 text-xs mb-2">Rejoignez notre cercle de gastronomes.</p>
+        <div class="flex">
+          <input type="email" placeholder="Votre email"
+            class="border border-gray-200 text-xs px-3 py-2 flex-1 outline-none focus:border-gray-400" />
+          <button class="bg-gray-900 text-white px-3 py-2 text-xs hover:bg-gray-700 transition">&rarr;</button>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-gray-300 text-xs mt-8">
+      &copy; 2024 The Culinary Archive. Une production gastronomique curatée.
+    </p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Physiologie du Goût — The Culinary Archive</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Noto Serif', 'serif'],
+            sans: ['Manrope', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .font-title,
+    .brand {
+      font-family: 'Noto Serif', serif;
+    }
+
+    .brand {
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 24;
+    }
+
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem;
+      border-radius: 999px;
+      color: #57534e;
+      transition: 0.25s ease;
+    }
+
+    .icon-btn:hover {
+      background: rgba(214, 211, 209, 0.45);
+      color: #3f3f46;
+    }
+
+    .mobile-pill {
+      white-space: nowrap;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      border: 1px solid #e7e5e4;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      color: #57534e;
+      background: #ffffff;
+      transition: 0.25s ease;
+    }
+
+    .mobile-pill:hover,
+    .mobile-pill.active {
+      background: #450a0a;
+      color: white;
+      border-color: #450a0a;
+    }
+
+    .content-text {
+      color: #57534e;
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+
+    .resource-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid #e7e5e4;
+      color: #1c1917;
+      transition: 0.25s ease;
+    }
+
+    .resource-link:hover {
+      color: #7f1d1d;
+      border-color: #d6d3d1;
+    }
+
+    .footer-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #7f1d1d;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .footer-link {
+      color: #57534e;
+      font-size: 0.95rem;
+      transition: 0.25s ease;
+    }
+
+    .footer-link:hover {
+      color: #7f1d1d;
+    }
+
+    .card-media {
+      transition: transform 0.5s ease, filter 0.4s ease;
+    }
+
+    .card-media:hover {
+      transform: scale(1.02);
+      filter: saturate(1.05);
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-stone-50/90 backdrop-blur border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-4">
+        <a href="index.html" class="brand text-2xl text-red-950">The Culinary Archive</a>
+
+        <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.2em]">
+          <a href="index.html" class="text-stone-600 hover:text-red-900 transition">Accueil</a>
+          <a href="catalogue.html" class="text-red-900 border-b border-red-900 pb-1">Catalogues</a>
+          <a href="article.html" class="text-stone-600 hover:text-red-900 transition">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button class="icon-btn hidden md:inline-flex" aria-label="Rechercher">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+          <button class="icon-btn md:hidden" aria-label="Menu">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="md:hidden pb-4 flex gap-2 overflow-x-auto no-scrollbar">
+        <a href="index.html" class="mobile-pill">Archive</a>
+        <a href="catalogue.html" class="mobile-pill active">Catalogues</a>
+        <a href="article.html" class="mobile-pill">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 md:pt-24">
+
+    <!-- Hero -->
+    <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14">
+      <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-8">
+          <div class="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-stone-500 mb-5">
+            <span class="font-semibold text-red-800">Essai gastronomique</span>
+            <span class="w-8 h-px bg-stone-300"></span>
+            <span>1825 • Histoire & Philosophie</span>
+          </div>
+
+          <h1 class="font-title text-4xl sm:text-5xl lg:text-7xl leading-tight text-red-950 mb-6">
+            La Physiologie <br>
+            du <i>Goût</i>
+          </h1>
+
+          <p class="text-stone-600 text-base sm:text-lg leading-8 max-w-2xl mb-8">
+            Œuvre majeure de Jean Anthelme Brillat-Savarin, ce livre fondateur explore la gastronomie
+            non comme une simple pratique culinaire, mais comme une science de la sensation,
+            du plaisir, de la culture et du jugement.
+          </p>
+
+          <button class="inline-flex items-center gap-3 bg-red-950 text-white px-6 py-4 text-xs uppercase tracking-[0.22em] font-bold hover:bg-red-900 transition">
+            Consulter l’Ouvrage
+            <span class="material-symbols-outlined text-base">menu_book</span>
+          </button>
+        </div>
+
+        <div class="lg:col-span-4">
+          <p class="border-l border-red-200 pl-5 italic text-stone-600 leading-8">
+            “Dis-moi ce que tu manges, je te dirai ce que tu es.”
+            <br><span class="not-italic text-sm text-stone-500">— Brillat-Savarin</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 overflow-hidden rounded-lg">
+        <div class="relative h-72 sm:h-96 lg:h-[42rem]">
+          <img
+            src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1600&h=900&fit=crop"
+            alt="Ancien livre de cuisine"
+            class="w-full h-full object-cover"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <div class="grid gap-14 lg:grid-cols-12">
+
+        <!-- Article -->
+        <article class="lg:col-span-8">
+          <div class="max-w-3xl">
+            <div class="flex flex-wrap gap-4 sm:gap-8 text-[10px] uppercase tracking-[0.2em] text-stone-500 mb-10">
+              <div><span class="text-red-900 font-bold">Auteur :</span> J. A. Brillat-Savarin</div>
+              <div><span class="text-red-900 font-bold">Lecture :</span> 10 minutes</div>
+              <div><span class="text-red-900 font-bold">Catégorie :</span> Histoire culinaire</div>
+            </div>
+
+            <h2 class="font-title text-3xl text-red-950 mb-5">Un traité qui a élevé la gastronomie au rang d’art intellectuel</h2>
+
+            <p class="content-text mb-8">
+              Publiée au début du XIXe siècle, <i>La Physiologie du Goût</i> s’impose comme l’un des textes
+              les plus influents de la littérature gastronomique. Brillat-Savarin n’y parle pas seulement
+              de mets et de tables élégantes : il y développe une réflexion profonde sur le goût,
+              l’appétit, les habitudes alimentaires, la sociabilité du repas et le rapport entre l’homme,
+              la culture et le plaisir.
+            </p>
+
+            <blockquote class="bg-stone-100 border-l-4 border-red-900 p-6 sm:p-8 rounded-lg font-title italic text-xl text-red-950 mb-10 leading-9">
+              “La découverte d’un mets nouveau fait plus pour le bonheur du genre humain
+              que la découverte d’une étoile.”
+            </blockquote>
+
+            <h3 class="font-title text-2xl text-stone-900 mb-4">Une œuvre à la croisée de la science et de l’élégance</h3>
+
+            <p class="content-text mb-8">
+              L’originalité du livre réside dans son ton unique. À la fois savant, spirituel et littéraire,
+              Brillat-Savarin mêle observations, aphorismes, anecdotes et analyses. Il observe le repas
+              comme un phénomène total : biologique, sensoriel, social et même politique.
+              En cela, il dépasse largement le simple livre de cuisine et pose les bases d’une pensée moderne
+              de la gastronomie.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              <img
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=900&fit=crop"
+                alt="Table gastronomique"
+                class="rounded-lg w-full h-64 object-cover card-media"
+              >
+              <img
+                src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?w=800&h=900&fit=crop"
+                alt="Manuscrit ancien"
+                class="rounded-lg w-full h-64 object-cover card-media sm:mt-8"
+              >
+            </div>
+
+            <h3 class="font-title text-2xl text-stone-900 mb-4">L’influence durable de Brillat-Savarin</h3>
+
+            <p class="content-text mb-8">
+              Ce texte a profondément marqué les générations suivantes de cuisiniers, de critiques,
+              d’historiens et d’écrivains. Son influence se retrouve dans la manière dont la cuisine française
+              a été pensée, codifiée et valorisée comme patrimoine culturel. Là où d’autres ouvrages transmettent
+              des recettes, <i>La Physiologie du Goût</i> transmet une vision : celle d’une table où le raffinement
+              devient langage, mémoire et civilisation.
+            </p>
+
+            <h3 class="font-title text-2xl text-stone-900 mb-4">Pourquoi ce livre reste essentiel aujourd’hui</h3>
+
+            <p class="content-text mb-12">
+              À l’ère des contenus rapides et des recettes instantanées, cette œuvre rappelle que manger
+              est aussi un acte de lecture du monde. Elle invite à ralentir, à observer, à juger avec subtilité
+              et à considérer la gastronomie comme un patrimoine vivant. Pour un lecteur moderne,
+              ce livre demeure un point d’entrée remarquable vers l’histoire des idées culinaires.
+            </p>
+
+            <!-- More -->
+            <div class="bg-white border border-stone-200 rounded-xl p-6 sm:p-10">
+              <h2 class="font-title text-3xl text-red-950 mb-8">Pour aller plus loin</h2>
+
+              <div class="grid gap-10 md:grid-cols-2">
+                <div>
+                  <h4 class="text-xs uppercase tracking-[0.22em] text-red-800 font-bold mb-4">
+                    Ressources associées
+                  </h4>
+
+                  <ul class="space-y-4">
+                    <li>
+                      <a href="#" class="resource-link">
+                        <span>Notice biographique de Brillat-Savarin</span>
+                        <span class="material-symbols-outlined text-base">north_east</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="resource-link">
+                        <span>Chronologie de la gastronomie française</span>
+                        <span class="material-symbols-outlined text-base">north_east</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="resource-link">
+                        <span>Influence du texte sur les écoles culinaires modernes</span>
+                        <span class="material-symbols-outlined text-base">north_east</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="text-xs uppercase tracking-[0.22em] text-red-800 font-bold mb-4">
+                    Héritage gastronomique
+                  </h4>
+
+                  <div class="relative overflow-hidden rounded-lg h-48">
+                    <img
+                      src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&h=700&fit=crop"
+                      alt="Cuisine raffinée"
+                      class="w-full h-full object-cover opacity-70 grayscale"
+                    >
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <button class="bg-red-950 text-white px-4 py-2 text-xs uppercase tracking-[0.2em] font-bold rounded-md hover:bg-red-900 transition">
+                        Explorer l’influence
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="lg:col-span-4">
+          <div class="lg:sticky lg:top-28">
+            <h3 class="text-xs uppercase tracking-[0.22em] text-red-900 font-extrabold mb-8 border-b border-red-100 pb-4">
+              Articles connexes
+            </h3>
+
+            <div class="space-y-10">
+              <a href="#" class="group block">
+                <div class="overflow-hidden rounded-lg mb-4 bg-stone-200">
+                  <img
+                    src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&h=700&fit=crop"
+                    alt="Le Guide Culinaire"
+                    class="w-full h-52 object-cover grayscale group-hover:grayscale-0 transition duration-500"
+                  >
+                </div>
+                <span class="text-[10px] uppercase tracking-[0.22em] text-stone-500 block mb-2">Techniques • 9 min</span>
+                <h4 class="font-title text-lg leading-7 group-hover:text-red-900 transition">
+                  Le Guide Culinaire : la codification absolue de la haute cuisine
+                </h4>
+              </a>
+
+              <a href="#" class="group block">
+                <div class="overflow-hidden rounded-lg mb-4 bg-stone-200">
+                  <img
+                    src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?w=900&h=700&fit=crop"
+                    alt="Le Viandier de Taillevent"
+                    class="w-full h-52 object-cover grayscale group-hover:grayscale-0 transition duration-500"
+                  >
+                </div>
+                <span class="text-[10px] uppercase tracking-[0.22em] text-stone-500 block mb-2">Histoire • 11 min</span>
+                <h4 class="font-title text-lg leading-7 group-hover:text-red-900 transition">
+                  Le Viandier de Taillevent : plongée dans l’imaginaire culinaire médiéval
+                </h4>
+              </a>
+
+              <a href="#" class="group block">
+                <div class="overflow-hidden rounded-lg mb-4 bg-stone-200">
+                  <img
+                    src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=900&h=700&fit=crop"
+                    alt="La Cuillère d'Argent"
+                    class="w-full h-52 object-cover grayscale group-hover:grayscale-0 transition duration-500"
+                  >
+                </div>
+                <span class="text-[10px] uppercase tracking-[0.22em] text-stone-500 block mb-2">Recettes • 7 min</span>
+                <h4 class="font-title text-lg leading-7 group-hover:text-red-900 transition">
+                  La Cuillère d’Argent : l’âme domestique et régionale de la cuisine italienne
+                </h4>
+              </a>
+            </div>
+
+            <div class="mt-12 bg-red-950 text-white rounded-xl p-6 sm:p-8">
+              <h5 class="font-title text-2xl mb-4">Archive Newsletter</h5>
+              <p class="text-sm leading-7 text-white/80 mb-6">
+                Rejoignez notre cercle de lecteurs, chercheurs et passionnés de patrimoine culinaire.
+              </p>
+
+              <form class="space-y-4">
+                <input
+                  type="email"
+                  placeholder="Votre adresse email"
+                  class="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 placeholder:text-white/50 focus:outline-none focus:border-white/50"
+                >
+                <button class="w-full bg-white text-red-950 py-3 rounded-md text-xs uppercase tracking-[0.2em] font-bold hover:bg-stone-200 transition">
+                  S’abonner
+                </button>
+              </form>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-stone-100 border-t border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <div class="brand text-xl text-red-950 mb-5">The Culinary Archive</div>
+          <p class="text-xs uppercase tracking-[0.18em] text-stone-500 leading-7">
+            Un dépôt numérique dédié à la préservation du patrimoine gastronomique
+            et à la mémoire savante de la cuisine.
+          </p>
+        </div>
+
+        <div>
+          <h6 class="footer-title">Navigation</h6>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="footer-link">Accueil</a></li>
+            <li><a href="catalogue.html" class="footer-link">Catalogues</a></li>
+            <li><a href="article.html" class="footer-link">Articles</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h6 class="footer-title">Informations</h6>
+          <ul class="space-y-3">
+            <li><a href="#" class="footer-link">Politique éditoriale</a></li>
+            <li><a href="#" class="footer-link">Mentions légales</a></li>
+            <li><a href="#" class="footer-link">Confidentialité</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h6 class="footer-title">Connect</h6>
+          <ul class="space-y-3">
+            <li><a href="#" class="footer-link">Contact</a></li>
+            <li><a href="#" class="footer-link">À propos</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-stone-200 flex flex-col md:flex-row items-center justify-between gap-4">
+        <span class="text-xs uppercase tracking-[0.18em] text-stone-500 text-center md:text-left">
+          © 2024 The Culinary Archive. Une production curatoriale gastronomique.
+        </span>
+
+        <div class="flex items-center gap-4">
+          <span class="material-symbols-outlined text-stone-500 hover:text-red-900 cursor-pointer transition">menu_book</span>
+          <span class="material-symbols-outlined text-stone-500 hover:text-red-900 cursor-pointer transition">history_edu</span>
+          <span class="material-symbols-outlined text-stone-500 hover:text-red-900 cursor-pointer transition">public</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

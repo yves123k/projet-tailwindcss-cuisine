@@ -1,0 +1,137 @@
+:root {
+  --font-body: "Manrope", sans-serif;
+  --font-title: "Noto Serif", serif;
+  
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+img {
+  display: block;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 300,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+.font-title,
+.brand {
+  font-family: var(--font-title);
+}
+
+.brand {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem;
+  border-radius: 999px;
+  color: #57534e;
+  transition: 0.25s ease;
+}
+
+.icon-btn:hover {
+  background: rgba(214, 211, 209, 0.45);
+  color: #3f3f46;
+}
+
+.mobile-pill {
+  white-space: nowrap;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: 1px solid #e7e5e4;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  color: #57534e;
+  background: #ffffff;
+  transition: 0.25s ease;
+}
+
+.mobile-pill:hover,
+.mobile-pill.active {
+  background: #450a0a;
+  color: white;
+  border-color: #450a0a;
+}
+
+.content-text {
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #57534e;
+}
+
+.card-media {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.card-media:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.03);
+}
+
+.resource-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid #d6d3d1;
+  padding-bottom: 0.8rem;
+  color: #1c1917;
+  transition: 0.25s ease;
+}
+
+.resource-link:hover {
+  color: #7f1d1d;
+  border-color: #7f1d1d;
+}
+
+.footer-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #450a0a;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+
+.footer-link {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #78716c;
+  transition: 0.25s ease;
+}
+
+.footer-link:hover {
+  color: #7f1d1d;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
