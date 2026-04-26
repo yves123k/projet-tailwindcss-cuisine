@@ -1,12 +1,395 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>The Culinary Archive</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-fixed-dim": "#e0c29f",
+            "surface-tint": "#974450",
+            "on-secondary-fixed": "#111f12",
+            "on-primary-fixed-variant": "#792d3a",
+            "on-tertiary-container": "#b09575",
+            "error": "#ba1a1a",
+            "outline": "#877273",
+            "primary-fixed": "#ffd9dc",
+            "on-tertiary-fixed-variant": "#584329",
+            "on-secondary-fixed-variant": "#3c4a3c",
+            "secondary-fixed": "#d7e7d3",
+            "background": "#fdf9f4",
+            "surface-container": "#f1ede8",
+            "on-primary-container": "#de7c89",
+            "on-error": "#ffffff",
+            "surface-dim": "#ddd9d5",
+            "surface-container-low": "#f7f3ee",
+            "outline-variant": "#d9c1c2",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#ffb2ba",
+            "primary": "#400111",
+            "on-surface-variant": "#544244",
+            "tertiary-fixed": "#fdddb9",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#fdf9f4",
+            "tertiary": "#291904",
+            "secondary-container": "#d4e4d0",
+            "on-tertiary": "#ffffff",
+            "surface-container-highest": "#e6e2dd",
+            "on-secondary-container": "#586757",
+            "on-background": "#1c1c19",
+            "surface-bright": "#fdf9f4",
+            "on-primary-fixed": "#3f0111",
+            "surface-variant": "#e6e2dd",
+            "primary-fixed-dim": "#ffb2ba",
+            "surface-container-high": "#ebe8e3",
+            "on-tertiary-fixed": "#281803",
+            "primary-container": "#5d1725",
+            "on-surface": "#1c1c19",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#bbcbb8",
+            "secondary": "#536252",
+            "inverse-surface": "#31302d",
+            "tertiary-container": "#402e15",
+            "inverse-on-surface": "#f4f0eb",
+            "error-container": "#ffdad6"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem"
+          },
+          fontFamily: {
+            headline: ["Noto Serif", "serif"],
+            body: ["Manrope", "sans-serif"],
+            label: ["Manrope", "sans-serif"],
+            serif: ["Noto Serif", "serif"],
+            sans: ["Manrope", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: #fdf9f4;
+      color: #1c1c19;
+    }
+
+    .font-serif,
+    .serif {
+      font-family: 'Noto Serif', serif;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 24;
+    }
+
+    .brand {
+      font-family: 'Noto Serif', serif;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem;
+      border-radius: 999px;
+      color: #57534e;
+      transition: 0.25s ease;
+    }
+
+    .icon-btn:hover {
+      background: rgba(214, 211, 209, 0.45);
+      color: #3f3f46;
+    }
+
+    .mobile-pill {
+      white-space: nowrap;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      border: 1px solid #e7e5e4;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      color: #57534e;
+      background: #ffffff;
+      transition: 0.25s ease;
+    }
+
+    .mobile-pill:hover,
+    .mobile-pill.active {
+      background: #450a0a;
+      color: white;
+      border-color: #450a0a;
+    }
+  </style>
 </head>
-<body>
-    <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 50px;">WAITING</h1>
+
+<body class="bg-background text-on-background antialiased selection:bg-primary-fixed selection:text-primary">
+
+  <!-- NAVBAR CATALOGUE INTÉGRÉE -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-stone-50/90 backdrop-blur border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-4">
+        <a href="index.html" class="brand text-2xl text-red-950">The Culinary Archive</a>
+
+        <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.2em]">
+          <a href="index.html" class="text-red-900 border-b border-red-900 pb-1">Accueil</a>
+          <a href="catalogue.html" class="text-stone-600 hover:text-red-900 transition">Catalogues</a>
+          <a href="details.html" class="text-stone-600 hover:text-red-900 transition">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button class="icon-btn hidden md:inline-flex" aria-label="Rechercher">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+          <button class="icon-btn md:hidden" aria-label="Menu">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="md:hidden pb-4 flex gap-2 overflow-x-auto">
+        <a href="index.html" class="mobile-pill active">Archive</a>
+        <a href="catalogue.html" class="mobile-pill">Catalogues</a>
+        <a href="details.html" class="mobile-pill">Contact</a>
+        <a href="#" class="mobile-pill">Scholars</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-24">
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[870px] flex flex-col items-center justify-center px-6 overflow-hidden bg-surface">
+      <div
+        class="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_rbQYfDErTMYSt7xVXLjzSCCjJAbwqCS1uBlWtR5lLNu3VgoD2yDuRkZEajszPfvPqTITxHWlexXAKuhBod1bx6NI8zwAWGPbJkJX0--SAjaajt6nNWr8Nbx1kx4lueVrk1KR6WE3yB_aMOsWUkqaeCocfdaARThGKGcyXWaQio2BMrKkQnllSrnO2di3glZddG9dlSZmo3d-2Po2FiyWCt30ihpOHm7JrFOxQNACuI-iudulkJNBLGDB1ATzjIPMArCSNjj30ZXg');">
+      </div>
+
+      <div class="max-w-4xl text-center z-10">
+        <h1 class="text-5xl md:text-8xl font-headline tracking-tight text-primary mb-8">
+          L'Encyclopédie Gastronomique
+        </h1>
+
+        <p class="text-lg md:text-xl font-body text-secondary max-w-2xl mx-auto leading-relaxed italic mb-12">
+          "La cuisine est le langage par lequel on peut exprimer l'harmonie, la créativité et le bonheur. C'est un récit silencieux écrit avec le feu, le temps et la passion."
+        </p>
+
+        <div class="relative w-full max-w-2xl mx-auto group">
+          <div class="absolute inset-y-0 left-6 flex items-center pointer-events-none">
+            <span class="material-symbols-outlined text-outline">search</span>
+          </div>
+
+          <input
+            class="w-full pl-16 pr-8 py-6 bg-surface-container-low border-none focus:ring-1 focus:ring-outline-variant/30 text-lg font-body placeholder:text-outline-variant rounded-lg shadow-sm transition-all"
+            placeholder="Rechercher un ingrédient, une technique ou une histoire..."
+            type="text">
+
+          <div class="absolute inset-y-2 right-2 flex items-center">
+            <button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label text-sm tracking-widest uppercase hover:opacity-90 transition-opacity">
+              Chercher
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute -bottom-12 -left-12 w-64 h-64 opacity-10 bg-primary-container rounded-full blur-3xl"></div>
+      <div class="absolute -top-12 -right-12 w-96 h-96 opacity-10 bg-secondary-container rounded-full blur-3xl"></div>
+    </section>
+
+    <!-- Category Bento Grid -->
+    <section class="px-6 md:px-12 py-32 bg-surface-container-low">
+      <div class="max-w-screen-2xl mx-auto">
+        <div class="mb-20">
+          <label class="font-label text-xs tracking-[0.2em] uppercase text-on-secondary-container opacity-60 mb-4 block">
+            Explorer les archives
+          </label>
+          <h2 class="text-4xl md:text-5xl font-headline text-primary">
+            Parcourir par Collection
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-auto">
+
+          <div class="md:col-span-8 group relative aspect-[16/10] overflow-hidden rounded-lg bg-surface-container-highest">
+            <img
+              alt="Terroir"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfYkr1rYMYnFvIWpDyP0V1yQT5PjyhERC1epQGghTsz6sJwK3rGk4lzkAYCTgC7vFGE9FdhwJkbOeOGby-57MPfa_l2ddgNmp7r7FcdGxNKTRKw7-ODK-syRIMxTuV3xJeI4fXGlYRs9nJbtBlPdOYtt_HRw0-c_PtbZG3IGDwy9aAqO2wn0sYCr5bosNAD6p6QSnKXPE8W-nAUL_BJ2D8OkAKWFgpzpTOal8DWHi9tZ9BD3CD217RXg2XW4rpwJIuYhEJk8zUC15t">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+            <div class="absolute bottom-10 left-10 text-on-primary">
+              <h3 class="text-3xl font-headline mb-2">Terroir</h3>
+              <p class="font-body text-sm opacity-90 max-w-md">
+                L'âme de la terre, des sols calcaires aux racines ancestrales.
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-4 group relative aspect-square md:aspect-auto overflow-hidden rounded-lg bg-surface-container-highest">
+            <img
+              alt="Pâtisserie"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpQZ3plQepKH86O_8rxtAVAApoetCHqKXckzQyfLY36hEHq4VSMQJBi1JvweNEikZkni77_vD7fUSQ-K9aYDGB6xN6V404E3u_4kvMjS0PrxF2GWW-QYQTVW2avNu-XEBB3rZnM4m0x3FvPzuYpdaJ8F0e9mGs3TPmf_PCau4M6GUi3-TwmrjKjXsfCcLThfK6IMUCMgl_fqEeIAtmX-P2ucs_l7hJ2auEDyR0senlD2iK8sNKngTK3avQWBk04_3kL2mNqmdHEkRG">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+            <div class="absolute bottom-8 left-8 text-on-primary">
+              <h3 class="text-2xl font-headline mb-1">Pâtisserie</h3>
+              <p class="font-body text-xs opacity-90">L'architecture du sucre.</p>
+            </div>
+          </div>
+
+          <div class="md:col-span-4 group relative aspect-square md:aspect-auto overflow-hidden rounded-lg bg-surface-container-highest">
+            <img
+              alt="Vins"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxuAhUEZ78tHKqzkcI2fmIwllzzQYnQenDthwzA0IeqkTZJEEQ4jVgfTlNWIDKu4ybq3fkJD_MaN2jKLnhoZAMKSl88TexiT7lMrhud_KKHr9LCg2UHSxn_0WnNbYN5iqS5eW5akS0lOmxVqcnhtwv5_2mduDUmn6RbrLRibmre_WScdsSW_vERRycaXQRcGJoJT0nL6_N9ucHDTYDxLe0FxRwwiJflJwEk_OK0vBs9K8P2fKHaBcD0NFfwIY409POQvAe9TqX1koO">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+            <div class="absolute bottom-8 left-8 text-on-primary">
+              <h3 class="text-2xl font-headline mb-1">Vins &amp; Spiritueux</h3>
+              <p class="font-body text-xs opacity-90">L'art de la distillation.</p>
+            </div>
+          </div>
+
+          <div class="md:col-span-4 group relative aspect-square md:aspect-auto overflow-hidden rounded-lg bg-surface-container-highest">
+            <img
+              alt="Techniques"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN8LJ-eGb1fnOg4-cu7h3ULVJjYj0Oj_yuE2HxVVW8X0T990c0voBWBolHc_fB6uhadPTT_ZJY-Co9ZItMkwxPgc-T6yD4_3gbMAULqy7WDEfiDh7TElHWvjMZZq9i2wh8WtelEoJIBFBL1MYvXfYuhx6Cu_z4VRYCmfRzYi6diEW0NMvfA9q1RMKaW4iuEE0g5wsRbIUuVNUP8QQFWHsWySOem-zjypI9AMWNEEHWvfUcR8V2gQaDf93PwQAH4jJuwRIK-SpFmrzd">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+            <div class="absolute bottom-8 left-8 text-on-primary">
+              <h3 class="text-2xl font-headline mb-1">Techniques Modernes</h3>
+              <p class="font-body text-xs opacity-90">La science au service du goût.</p>
+            </div>
+          </div>
+
+          <div class="md:col-span-4 group relative aspect-square md:aspect-auto overflow-hidden rounded-lg bg-surface-container-highest">
+            <img
+              alt="Histoire"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-SInut4xOsGQp62U83rDDuShFat-U2z1ilnIaU2GkDHmn2JsLWvwmbi1XGfEZk9b9LrPI7KVMvENdJTWpTR7DOUEBbi2cw4rLvHiee02lRzx9IYHIx8VnPvIQbadfRCziNCDT1dDVT2A_VgU-S0WQ7wZfJhL4Y54kPy4wVekVdzTiTowdUlMuRXg0Zs42wOkA3DEt2lmSwJB_gkUfAJgDMPVuLdQOSwU16E5EneH5k_uRc_5lfwEtrulZbNznTpgBI03F_JqdePHt">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+            <div class="absolute bottom-8 left-8 text-on-primary">
+              <h3 class="text-2xl font-headline mb-1">Histoire de la Table</h3>
+              <p class="font-body text-xs opacity-90">Récits de banquets royaux.</p>
+            </div>
+          </div>
+
+          <div class="md:col-span-12 group relative h-80 overflow-hidden rounded-lg bg-surface-container-highest">
+            <img
+              alt="Monde"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBic9NpO7TsFzMrke7eR20jtLM829HnHElEIgwEb8Ic3FwrQXWS05vxWuPbGPvLLtx8YVub1xropyTQFXbHtaaVuXgZdbYGfj7cTRKO3xYfrqn5WVuTOpsbSL1zNZIc2YhQJXD1QP9fMwjPmcL1epyVd6XAc6C8_Yz5m4QXUyIgfx_i4xVDvWn-owLTDXXhKKETMNdAGQNIQRD7VtMEtVG79lcULIBKOzbFbFXZzA3Ao-In08Yg_i3T2hYciiEVKrz2h5DwZGhanZ7G">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-transparent"></div>
+            <div class="absolute inset-y-0 left-12 flex flex-col justify-center text-on-primary">
+              <h3 class="text-4xl font-headline mb-2">Cuisine du Monde</h3>
+              <p class="font-body text-lg opacity-90 max-w-lg">
+                Un voyage sensoriel à travers les continents et les cultures.
+              </p>
+              <a class="mt-6 flex items-center gap-2 font-label text-sm uppercase tracking-widest group/link" href="#">
+                Explorer la mappemonde
+                <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">
+                  arrow_forward
+                </span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full mt-24 border-t border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 max-w-screen-2xl mx-auto">
+
+      <div class="flex flex-col gap-6">
+        <h4 class="text-lg font-serif text-red-950 dark:text-red-400">
+          The Culinary Archive
+        </h4>
+        <p class="font-sans text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400">
+          Dédié à la préservation et à la célébration du patrimoine gastronomique mondial.
+        </p>
+      </div>
+
+      <div>
+        <h5 class="font-label text-xs uppercase tracking-widest text-red-950 dark:text-red-400 mb-6 font-bold">
+          Navigation
+        </h5>
+        <ul class="flex flex-col gap-4">
+          <li>
+            <a class="font-sans text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400 hover:text-red-800 dark:hover:text-red-300 transition-opacity" href="#">
+              About the Archive
+            </a>
+          </li>
+          <li>
+            <a class="font-sans text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400 hover:text-red-800 dark:hover:text-red-300 transition-opacity" href="#">
+              Curation Policy
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-label text-xs uppercase tracking-widest text-red-950 dark:text-red-400 mb-6 font-bold">
+          Légal
+        </h5>
+        <ul class="flex flex-col gap-4">
+          <li>
+            <a class="font-sans text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400 hover:text-red-800 dark:hover:text-red-300 transition-opacity" href="#">
+              Terms of Service
+            </a>
+          </li>
+          <li>
+            <a class="font-sans text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400 hover:text-red-800 dark:hover:text-red-300 transition-opacity" href="#">
+              Privacy
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-label text-xs uppercase tracking-widest text-red-950 dark:text-red-400 mb-6 font-bold">
+          Contact
+        </h5>
+        <p class="font-sans text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400 mb-4">
+          Paris, France
+        </p>
+        <a class="font-sans text-xs uppercase tracking-widest text-red-900 dark:text-red-400 font-bold hover:underline" href="#">
+          Contactez-nous
+        </a>
+      </div>
+
+    </div>
+
+    <div class="max-w-screen-2xl mx-auto px-12 py-8 border-t border-stone-200/50 dark:border-stone-800/50 text-center">
+      <p class="font-sans text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400">
+        © 2024 The Culinary Archive. A Curated Gastronomer Production.
+      </p>
+    </div>
+  </footer>
+
 </body>
 </html>
